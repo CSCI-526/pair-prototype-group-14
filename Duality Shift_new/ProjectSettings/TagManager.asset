@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Box
   - Weight
+  - Tile
   layers:
   - Default
   - TransparentFX

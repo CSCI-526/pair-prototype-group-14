@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionStay(Collision collision)
     {
         // Allow jumping while on the ground or on the box
-        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Box"))
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Tile"))
         {
             isGrounded = true;
         }
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     void OnCollisionExit(Collision collision)
     {
         // When leaving the floor or the box, player is no longer grounded
-        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Box"))
+        if (collision.gameObject.CompareTag("Floor") || collision.gameObject.CompareTag("Box") || collision.gameObject.CompareTag("Tile"))
         {
             isGrounded = false;
         }
