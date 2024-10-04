@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class ElevatorPlatformController : MonoBehaviour
 {
-    public float speed = 2f;               // 平台移动的速度
-    public float lowerHeight = 0f;         // 平台的最低位置
-    public float upperHeight = 10f;        // 平台的最高位置
+    public float speed = 2f;               // Speed of the platform movement
+    public float lowerHeight = 0f;         // Lowest position of the platform
+    public float upperHeight = 10f;        // Highest position of the platform
 
-    private bool movingUp = true;          // 平台是否在上升
 
-    void Update()
+    private bool movingUp = true;          
+
+    private void Update()
     {
-        // 平台上升
         if (movingUp)
         {
             transform.Translate(Vector3.up * speed * Time.deltaTime);
-
-            // 如果平台到达了最高位置，则改变方向
+            
             if (transform.position.y >= upperHeight)
             {
                 movingUp = false;
             }
         }
-        // 平台下降
         else
         {
             transform.Translate(Vector3.down * speed * Time.deltaTime);
-
-            // 如果平台到达了最低位置，则改变方向
+            
             if (transform.position.y <= lowerHeight)
             {
                 movingUp = true;

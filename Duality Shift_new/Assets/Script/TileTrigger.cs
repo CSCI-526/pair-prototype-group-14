@@ -9,11 +9,21 @@ public class TileTrigger : MonoBehaviour
     public GameObject nextTileTrigger;  // Reference to the trigger of the next tile (e.g., Tile2Trigger)
     private int playersOnTile = 0;      // Track how many players are on this tile
 
+<<<<<<< Updated upstream
+=======
+    private void OnEnable()
+    {
+        playersOnTile = 0;
+        Debug.Log(gameObject.name + " OnEnable: playersOnTile reset to 0");
+    }
+
+>>>>>>> Stashed changes
     // Called when a player enters this tile
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+<<<<<<< Updated upstream
             // Increase the player count when a player steps on the tile
             playersOnTile++;
 
@@ -21,10 +31,23 @@ public class TileTrigger : MonoBehaviour
             if (nextTile != null)
             {
                 nextTile.SetActive(true);
+=======
+            playersOnTile++;
+            Debug.Log("Player entered: " + gameObject.name + ", playersOnTile: " + playersOnTile);
+
+            if (nextTile != null)
+            {
+                nextTile.SetActive(true);
+                Debug.Log(nextTile.name + " activated");
+>>>>>>> Stashed changes
             }
             if (nextTileTrigger != null)
             {
                 nextTileTrigger.SetActive(true);
+<<<<<<< Updated upstream
+=======
+                Debug.Log(nextTileTrigger.name + " trigger activated");
+>>>>>>> Stashed changes
             }
         }
     }
@@ -34,6 +57,7 @@ public class TileTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+<<<<<<< Updated upstream
             // Decrease the player count when a player leaves the tile
             playersOnTile--;
 
@@ -79,3 +103,46 @@ public class TileTrigger : MonoBehaviour
 
 
 
+=======
+            playersOnTile--;
+            Debug.Log("Player exited: " + gameObject.name + ", playersOnTile: " + playersOnTile);
+
+            if (playersOnTile <= 0)
+            {
+                if (tile != null)
+                {
+                    StartCoroutine(DeactivateAfterDelay(tile, 0.1f));
+                }
+                StartCoroutine(DeactivateAfterDelay(gameObject, 0.1f));
+            }
+
+            if (nextTile != null)
+            {
+                TileTrigger nextTileScript = nextTile.GetComponent<TileTrigger>();
+
+                if (nextTileScript != null && nextTileScript.playersOnTile <= 0)
+                {
+                    StartCoroutine(DeactivateAfterDelay(nextTile, 0.1f));
+                    if (nextTileTrigger != null)
+                    {
+                        StartCoroutine(DeactivateAfterDelay(nextTileTrigger, 0.1f));
+                    }
+                }
+            }
+        }
+    }
+
+    private IEnumerator DeactivateAfterDelay(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        obj.SetActive(false);
+        Debug.Log(obj.name + " deactivated after delay");
+    }
+    
+    public void ResetPlayersOnTile()
+    {
+        playersOnTile = 0;
+        Debug.Log(gameObject.name + " playersOnTile reset to 0 by ResetPlayersPosition");
+    }
+}
+>>>>>>> Stashed changes

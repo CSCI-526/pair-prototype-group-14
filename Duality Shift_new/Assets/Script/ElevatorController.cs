@@ -6,40 +6,39 @@ public class ElevatorController : MonoBehaviour
     public float lowerHeight = 1f;
     public float upperHeight = 10f;
 
-    private bool movingUp = true;          // 是否向上移动
-    private bool isMoving = false;         // 是否正在移动
+    private bool movingUp = true;          // Whether the platform is moving up
+    private bool isMoving = false;         // Whether the platform is currently moving
+
 
     public void ToggleMovement()
     {
-        isMoving = !isMoving; // 切换移动状态
+        isMoving = !isMoving; 
     }
 
     private void Update()
     {
-        if (isMoving) // 如果平台处于移动状态
+        if (isMoving) 
         {
             if (movingUp)
             {
-                // 向上移动
                 if (transform.position.y < upperHeight)
                 {
                     transform.position += Vector3.up * speed * Time.deltaTime;
                 }
                 else
                 {
-                    movingUp = false; // 到达上限，改变方向
+                    movingUp = false; 
                 }
             }
             else
             {
-                // 向下移动
                 if (transform.position.y > lowerHeight)
                 {
                     transform.position += Vector3.down * speed * Time.deltaTime;
                 }
                 else
                 {
-                    movingUp = true; // 到达下限，改变方向
+                    movingUp = true; 
                 }
             }
         }

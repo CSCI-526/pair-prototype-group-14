@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Get the Rigidbody component attached to the player
         rb = GetComponent<Rigidbody>();
     }
 
@@ -30,8 +29,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false; // Player is in the air now
         }
     }
-
-    // This method is called when the player is in continuous contact with another collider
+    
     void OnCollisionStay(Collision collision)
     {
         // Allow jumping while on the ground or on the box
@@ -40,8 +38,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
     }
-
-    // This method is called when the player stops colliding with another collider
+    
     void OnCollisionExit(Collision collision)
     {
         // When leaving the floor or the box, player is no longer grounded

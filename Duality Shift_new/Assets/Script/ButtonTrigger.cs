@@ -8,7 +8,7 @@ public class ButtonTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            elevatorController.ToggleMovement(); // 切换平台的移动状态
+            elevatorController.ToggleMovement(); 
         }
     }
 }

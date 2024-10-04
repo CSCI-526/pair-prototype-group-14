@@ -34,8 +34,7 @@ public class CharacterSwitcher : MonoBehaviour
                 ActivatePlayer(player1, player2);
             }
         }
-
-        // Detecting the “Shift” key, if pressed, controls the movement of both characters together.
+        
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
             isControllingBoth = true;

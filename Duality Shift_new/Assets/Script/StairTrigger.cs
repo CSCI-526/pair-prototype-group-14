@@ -8,7 +8,7 @@ public class StairTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            stairController.ToggleStairPosition(); // 切换楼梯的位置状态
+            stairController.ToggleStairPosition(); 
         }
     }
 }
