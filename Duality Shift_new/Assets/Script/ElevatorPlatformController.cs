@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ElevatorPlatformController : MonoBehaviour
 {
-    public float speed = 2f;               // Speed of the platform movement
-    public float lowerHeight = 0f;         // Lowest position of the platform
-    public float upperHeight = 10f;        // Highest position of the platform
+    public float speed = 2f;               
+    public float lowerHeight = 0f;         
+    public float upperHeight = 10f;        
 
 
     private bool movingUp = true;          

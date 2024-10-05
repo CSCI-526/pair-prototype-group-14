@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlatformRise : MonoBehaviour
 {
-    public Transform platform; // Reference to the platform that needs to rise
-    public float riseHeight = 2.0f; // Height the platform rises
-    public float riseSpeed = 1.0f; // Speed at which the platform rises
+    public Transform platform; 
+    public float riseHeight = 2.0f; 
+    public float riseSpeed = 1.0f; 
 
 
     private bool triggered = false;

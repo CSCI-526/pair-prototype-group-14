@@ -5,26 +5,22 @@ using TMPro;
 
 public class GameComplete : MonoBehaviour
 {
-    public TextMeshProUGUI winText; // The End Text
-    private int playersReached = 0;    
+    public TextMeshProUGUI winText; 
+    private int reached = 0;    
     
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            playersReached++;
-            // If both of players reach the end
-            if (playersReached == 2)
+            reached++;
+            
+            if (reached == 2)
             {
-                ShowWinText();
+                winText.enabled = true;
             }
         }
         
     }
     
     
-    void ShowWinText()
-    {
-        winText.enabled = true; // Show the text
-    }
 }

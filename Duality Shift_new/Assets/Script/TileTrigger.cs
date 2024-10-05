@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class TileTrigger : MonoBehaviour
 {
-    public GameObject tile;             // Reference to the current tile's GameObject
-    public GameObject nextTile;         // Reference to the next tile (e.g., Tile2)
-    public GameObject nextTileTrigger;  // Reference to the trigger of the next tile (e.g., Tile2Trigger)
-    private int playersOnTile = 0;      // Track how many players are on this tile
+    public GameObject tile;             
+    public GameObject nextTile;         
+    public GameObject nextTileTrigger;  
+    private int playersOnTile = 0;      
 
     private void OnEnable()
     {
@@ -15,7 +15,7 @@ public class TileTrigger : MonoBehaviour
         Debug.Log(gameObject.name + " OnEnable: playersOnTile reset to 0");
     }
 
-    // Called when a player enters this tile
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -36,7 +36,7 @@ public class TileTrigger : MonoBehaviour
         }
     }
 
-    // Called when a player exits this tile
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BoxPushControl : MonoBehaviour
 {
-    public float force = 10f; // Force to push the cube forward
-    private int interactingPlayers = 0; // Counter to track interacting players
+    public float force = 10f; 
+    private int playerCount = 0; 
     private Rigidbody rb;
 
     void Start()
@@ -16,40 +16,40 @@ public class BoxPushControl : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        // Increase the counter when a "Player" tagged object collides with the cube
+        
         if (collision.gameObject.CompareTag("Player"))
         {
-            interactingPlayers++;
-            CheckIfShouldMove();
+            playerCount = playerCount + 1;
+            Check();
         }
     }
 
     void OnCollisionExit(Collision collision)
     {
-        // Decrease the counter when a "Player" tagged object stops colliding with the cube
+        
         if (collision.gameObject.CompareTag("Player"))
         {
-            interactingPlayers--;
-            CheckIfShouldMove();
+            playerCount = playerCount - 1; ;
+            Check();
         }
     }
     
-    private void CheckIfShouldMove()
+    private void Check()
     {
-        // If more than one player is interacting, make the cube non-kinematic and apply force
-        if (interactingPlayers > 1)
+        
+        if (playerCount > 1)
         {
-            rb.isKinematic = false; // Allow physics interactions
+            rb.isKinematic = false; 
         }
         else
         {
-            rb.isKinematic = true; // Disable movement when only one or no players are interacting
+            rb.isKinematic = true; 
         }
     }
 
     void FixedUpdate()
     {
-        if (interactingPlayers > 1)
+        if (playerCount > 1)
         {
             rb.AddForce(Vector3.forward * force);
         }

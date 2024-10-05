@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class StairController : MonoBehaviour
 {
-    public float speed = 2f; // Speed of the stairs' movement
-    private Vector3 targetPosition; // Target position of the stairs
-    private Vector3 originalPosition; // Original position of the stairs
-    private bool moveToTarget = false; // Controls whether the stairs move to the target position
+    public float speed = 2f; 
+    private Vector3 targetPosition; 
+    private Vector3 originalPosition; 
+    private bool moveToTarget = false; 
 
 
     void Start()

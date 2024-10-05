@@ -6,8 +6,8 @@ public class ElevatorController : MonoBehaviour
     public float lowerHeight = 1f;
     public float upperHeight = 10f;
 
-    private bool movingUp = true;          // Whether the platform is moving up
-    private bool isMoving = false;         // Whether the platform is currently moving
+    private bool movingUp = true;          
+    private bool isMoving = false;         
 
 
     public void ToggleMovement()

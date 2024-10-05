@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ResetPlayersPosition : MonoBehaviour
 {
-    // TileTrigger script object
-    public GameObject tile;  // Tile object to activate
-    private TileTrigger tileTriggerScript; // Corresponding TileTrigger script
+    
+    public GameObject tile;  
+    private TileTrigger tileTriggerScript; 
 
 
     private void Start()
